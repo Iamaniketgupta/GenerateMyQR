@@ -1,0 +1,393 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+/*
+    Color Scheme
+*/
+
+.light-theme {
+    --background-primary: #ffffff;
+    --secondary-color: #98DED9;
+    --secondary-color2: #74c79d;
+    --background-secondary: #151c23;
+    --text-primary: #000;
+    --text-color: #024948;
+
+}
+
+.dark-theme {
+    --background-primary: #151c23;
+    --secondary-color: #98DED9;
+    --secondary-color2: #74c79d;
+    --background-secondary: #ffffff;
+    --text-primary: #ffffff;
+    --text-color: #024948;
+
+}
+
+
+
+:root {
+
+    --white: #ffffff;
+    --secondary-color: #98DED9;
+    --secondary-color2: #74c79d;
+    --text-color: #024948;
+
+    /*-----------------------------------*\
+                Typography
+    \*-----------------------------------*/
+
+
+    --fs-base: 0.85rem;
+    --fs-1: 1.875rem;
+    --fs-2: 1.5rem;
+    --fs-3: 1.25rem;
+    --fs-4: 0.875rem;
+    --fs-5: 0.75rem;
+
+    --py: 14px;
+}
+
+/*
+    Default Styles
+*/
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+a,
+span {
+    display: inline-block;
+}
+
+html {
+    font-size: var(--fs-base);
+    line-height: 1.8;
+    overflow-x: hidden;
+
+}
+
+
+/*
+   * scrollbar style
+*/
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--secondary-color2);
+}
+
+
+
+
+/*-----------------------------------*\ 
+                 BASE STYLE
+    \*-----------------------------------*/
+
+.h1,
+.h2,
+.h3,
+.h4 {
+    display: block;
+    color: var(--foreground-primary);
+}
+
+.h1 {
+    font-size: var(--fs-1);
+    font-weight: 900;
+}
+
+.h2 {
+    font-size: var(--fs-2);
+    font-weight: 700;
+}
+
+.h3 {
+    font-size: var(--fs-3);
+    font-weight: 700;
+}
+
+.h4 {
+    font-size: var(--fs-4);
+    font-weight: 700;
+}
+
+.text-sm {
+    font-size: var(--fs-4);
+}
+
+.text-tiny {
+    font-size: var(--fs-5);
+}
+
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+
+/* REUSED STYLES */
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    min-width: 80px;
+    min-height: 40px;
+    font-size: var(--fs-2);
+    padding: var(--py);
+    background-color: var(--secondary-color);
+    cursor: pointer;
+    color: var(--text-color);
+    font-weight: 700;
+    border-radius: var(--fs-4);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color2);
+}
+
+/*-------------------------*/
+
+.main-wrapper {
+    position: relative;
+}
+
+/*
+    Logo
+*/
+
+.logo {
+    min-width: fit-content;
+    padding: 0;
+    height: 70px;
+    cursor: pointer;
+}
+
+.logo img {
+    margin: 0 15px;
+}
+
+/* 
+    Header 
+*/
+
+.header-wrapper {
+    width: 100vw;
+    height: 70px;
+    font-size: var(--fs-2);
+    color: var(--background-secondary);
+    font-weight: 700;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 10;
+    padding: 0 var(--fs-base);
+    box-shadow: 0px 1px 8px black;
+}
+
+
+.headerIcn {
+    min-width: fit-content;
+    padding: 10px;
+}
+
+#top i {
+    cursor: pointer;
+    font-size: var(--fs-1);
+    padding: 5px;
+    margin: 0 5px;
+}
+.fa-moon{
+    color: var(--text-color);
+}
+.fa-sun{
+    color:var(--secondary-color2)
+}
+.navicn {
+    display: none;
+}
+
+#nav-wrapper ul li {
+    margin: 0 15px;
+}
+
+/* ----------------------------------------
+            Media Queries For HEADER
+  -----------------------------------------*/
+
+
+@media (max-width:800px) {
+    .navicn {
+        display: block;
+    }
+
+    #nav-wrapper,
+    #nav-wrapper ul {
+        flex-direction: column;
+        width: 100vw;
+        height: 100vh;
+
+    }
+
+    #nav-wrapper ul li {
+        text-align: center;
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    #nav-wrapper {
+        position: fixed;
+        top: 0;
+        background-color: var(--background-primary);
+        right: -100%;
+        visibility: hidden;
+        transition: all linear 0.5s;
+    }
+
+    .fa-close {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+    }
+
+    #nav-wrapper.shownav {
+        right: 0px;
+        visibility: visible;
+        transition: all linear 0.5s;
+    }
+
+}
+
+@media (max-width:450px) {
+    .logo span {
+        display: none;
+    }
+}
+
+/* -----------------------------------*/
+
+
+/*
+    HERO SECTION and QR GENERATOR
+*/
+#hero-section-wrapper,
+.qr-generator-container {
+    width: 100vw;
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.intro-container,
+.qr-generator {
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-text-container,
+.intro-image-container{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    margin: 20px;
+
+}
+
+.intro-text-container p,
+button,
+h1 {
+    margin: 18px 0;
+}
+
+.intro-text-container h1 {
+    font-size: 2rem;
+    line-height: normal;
+}
+
+.intro-image-container img {
+    height: 300px;
+    width: 300px;
+}
+
+.qr-details-form {
+    flex: 1;
+    min-width:300px;
+    height: 100%; 
+    max-width: 500px;
+}
+#qr-form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+#qr-form input,select{
+outline: none;
+border: none;
+width: 100%;
+height: 40px;
+border-radius: 20px;
+padding: 0 20px;
+background-color:#f0f0f0;
+font-weight: 700;
+}
+#qr-form select option{
+    color: var(--text-color);
+    font-weight: 700;
+}
+#qr-form label{
+    font-weight: 700;
+    margin: 10px;
+}
+#qr-code-image-wrapper{
+    flex: 1/2;
+    margin: 20px;
+    background-color: var(--white);
+    height: 100%;
+    max-width: 600px;
+    min-width: 300px;
+    min-height: 300px;
+    border: 4px dashed var(--secondary-color2);
+    background-image: url("/Assets/Images/qrplaceholder.jpg");
+    background-size: cover;
+    filter: opacity(0.4);
+}
+
+#qr-code{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#download-qr{
+    margin: 25px 40px;
+    font-size:var(--fs-3);
+}

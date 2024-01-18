@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Generate free QR Codes and Bar Codes with our online tool. Create customized QR Codes for websites, products, and more. Boost your business with easy-to-use QR Code generation.">
+    <meta name="keywords" content="QR Codes, Bar Codes, Generate, Free, Online Tool">
+
+    <title>QR Codes Generator for free - Generate Bar and QR Codes</title>
+    <link rel="shortcut icon" href="/Assets/Images/favicon.ico" type="image/x-icon">
+
+    <!-- 
+    Style Sheets
+ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/Assets/style.css">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+
+        <!-- 
+            HEADER
+         -->
+
+        <header class="header-wrapper flex" id="top">
+            <div class="logo flex">
+                <img src="/Assets/Images/logo.png" alt="QR Code Generator">
+                <span>QR Code Generator</span>
+            </div>
+            <nav id="nav-wrapper" class="flex">
+                <i class="fa-solid fa-close navicn" id="cross"></i>
+                <ul class="flex">
+                    <li>About</li>
+                    <li>Connect</li>
+                    <li>Feedback</li>
+                    <li>Tutorial</li>
+                </ul>
+            </nav>
+            <div class="headerIcn">
+                <span id="theme-changer"><i class="fa-solid fa-sun"></i></span>
+                <span><i class="fa-solid fa-bars navicn"></i></span>
+            </div>
+        </header>
+
+        <!-- 
+            HERO SECTION
+         -->
+
+        <section id="hero-section-wrapper">
+            <div class="intro-container flex">
+                <div class="intro-text-container flex flex-col">
+                    <h1>Generate Any QR for FREE</h1>
+                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet reiciendis sint nulla,
+                        deserunt
+                        laborum possimus fugit obcaecati assumenda omnis exercitationem repudiandae neque, ad ipsam
+                        laudantium
+                        unde distinctio minima cumque! Quam!
+                    </p>
+                    <button class="btn">Generate QR</button>
+                </div>
+
+                <div class="intro-image-container">
+                    <img src="/Assets/Images/heroimg.png" alt="">
+                </div>
+            </div>
+
+
+        </section>
+
+
+        <!-- 
+        QR Genrator
+    -->
+
+        <section id="qr-generator-container">
+<div class="qr-generator flex">
+            <div class="qr-details-form">
+                <form id="qr-form">
+                    <label for="qr_url">
+                        URL/Text
+                    </label>
+                    <input type="url" name="qr_url" id="qr_url" placeholder="Enter any URL or Text ">
+
+                    <label for="size">
+                        Select Size
+                    </label>
+                    <select name="size" id="size">
+                        <option value="300" selected>300x300</option>
+                        <option value="400">400x400</option>
+                        <option value="500">500x500</option>
+                        <option value="600">600x600</option>
+                    </select>
+                </form>
+                <button id="download-qr"class="btn" disabled>Download QR</button>
+            </div>
+            <div id="qr-code-image-wrapper">
+                <div id="qr-code"></div>
+            </div>
+        </div>
+        </section>
+
+
+
+
+        <!-- main wrapper end point -->
+    </div>
+
+    <!-- 
+        Scripts
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/Assets/script.js"></script>
+</body>
+
+</html>
