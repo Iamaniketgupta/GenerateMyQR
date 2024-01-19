@@ -407,7 +407,9 @@ select {
     overflow: scroll;
     cursor: pointer;
 }
-
+#qr-code img {
+    z-index: 2;
+}
 #qr-code-image-wrapper ::-webkit-scrollbar {
     display: none;
 }

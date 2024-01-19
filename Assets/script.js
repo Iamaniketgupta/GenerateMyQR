@@ -81,23 +81,20 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
 
 //  DOWNLOAD BUTTON
 
+
 downloadBtn.addEventListener("click", downloadQR);
 
 function downloadQR() {
     console.log("click");
-    let qrImg = qrCodeContainer.querySelector("img");
 
-    if (qrImg) {
+    let qrImg = qrCodeContainer.querySelector("img");
+    
+
+    if (qrImg.src) {
         const link = document.createElement("a");
         link.href = qrImg.src;
         link.download = "qrcode.png";
-
-        const clickEvent = new MouseEvent("click", {
-            bubbles: true,
-            cancelable: true,
-            view: window
-        });
-        link.dispatchEvent(clickEvent);
-
+        link.click();
+        
     }
 }
