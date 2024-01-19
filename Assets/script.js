@@ -11,7 +11,7 @@ const loader = document.querySelector("#loader");
 const colorVal = document.querySelector("#color-picker");
 const downloadBtn = document.querySelector("#download-qr");
 
-colorVal.value="#000000"; //default color
+colorVal.value = "#000000"; //default color
 
 body.classList.add("dark-theme"); // default theme
 
@@ -49,10 +49,10 @@ qrForm.addEventListener("submit", async (e) => {
 
 
     try {
-        
+
         await generateQR(qrInputBox.value, qrSize.value, colorVal.value); // Pass the values
-        downloadBtn.style.display="block";
-       
+        downloadBtn.style.display = "block";
+
 
     } catch (err) {
         console.error("Error generating QR code:", err);
@@ -62,7 +62,7 @@ qrForm.addEventListener("submit", async (e) => {
 });
 
 //  QR GENERATION
-   
+
 const generateQR = (qrVal, qrSizeVal, colorVal) => {
     qrCodeContainer.innerHTML = "";
     try {
@@ -92,9 +92,12 @@ function downloadQR() {
         link.href = qrImg.src;
         link.download = "qrcode.png";
 
-        body.appendChild(link);
-        link.click();
-        body.removeChild(link);
+        const clickEvent = new MouseEvent("click", {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        link.dispatchEvent(clickEvent);
 
     }
 }
