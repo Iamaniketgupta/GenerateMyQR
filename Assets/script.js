@@ -91,6 +91,10 @@ function downloadQR() {
         const link = document.createElement("a");
         link.href = qrImg.src;
         link.download = "qrcode.png";
+
+        body.appendChild(link);
         link.click();
+        body.removeChild(link);
+
     }
 }

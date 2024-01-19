@@ -139,7 +139,7 @@ html {
 body {
     background-color: var(--background-primary);
     color: var(--text-primary);
-    transition: 1s;
+    transition: 0.5s;
 }
 
 
@@ -418,11 +418,11 @@ font-weight: 700;
  */
 
 .footer-wrapper{
-width: 100%;
+width: 100vw;
 height: fit-content;
-padding: 20px;
 margin-top: 2rem;
 }
+
 .social-media-wrapper a, a i{
     color: var(--background-secondary);
     margin: 0 8px;
@@ -431,6 +431,7 @@ margin-top: 2rem;
 .social-media-wrapper a i:hover{
     color: var(--text-color);
 }
+
 .copyright-wrapper,.copyright-wrapper a{
     font-size: var(--fs-3);
     color: var(--background-secondary);
