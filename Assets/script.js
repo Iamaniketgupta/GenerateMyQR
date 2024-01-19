@@ -50,7 +50,7 @@ qrForm.addEventListener("submit", async (e) => {
 
     try {
 
-        await generateQR(qrInputBox.value, qrSize.value, colorVal.value); // Pass the values
+        await generateQR(qrInputBox.value, qrSize.value, colorVal.value);
         downloadBtn.style.display = "block";
 
 
@@ -85,12 +85,10 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
 downloadBtn.addEventListener("click", downloadQR);
 
 function downloadQR() {
-    console.log("click");
 
     let qrImg = qrCodeContainer.querySelector("img");
     
-
-    if (qrImg.src) {
+    if (qrImg) {
         const link = document.createElement("a");
         link.href = qrImg.src;
         link.download = "qrcode.png";
