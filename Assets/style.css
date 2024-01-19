@@ -139,6 +139,7 @@ html {
 body {
     background-color: var(--background-primary);
     color: var(--text-primary);
+    transition: 1s;
 }
 
 
@@ -235,6 +236,11 @@ body {
 
 #nav-wrapper ul li {
     margin: 0 15px;
+    cursor: pointer;
+}
+
+#nav-wrapper ul li:hover{
+    color: var(--text-color);
 }
 
 /* ----------------------------------------
@@ -297,6 +303,7 @@ body {
 /*
     HERO SECTION and QR GENERATOR
 */
+
 #hero-section-wrapper,
 .qr-generator-container {
     width: 100vw;
@@ -325,6 +332,9 @@ body {
 button,
 h1 {
     margin: 18px 0;
+}
+.intro-text-container p{
+    font-size: var(--fs-3);
 }
 
 .intro-text-container h1 {
@@ -379,15 +389,54 @@ font-weight: 700;
     border: 4px dashed var(--secondary-color2);
     background-image: url("/Assets/Images/qrplaceholder.jpg");
     background-size: cover;
-    filter: opacity(0.4);
 }
 
 #qr-code{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+    width: 300px;
+    height: 300px;
+    overflow: scroll;
+    cursor: pointer;
 }
-#download-qr{
-    margin: 25px 40px;
+
+#qr-code-image-wrapper ::-webkit-scrollbar{
+    display: none;
+}
+
+#download-qr,#generate-qr{
+    margin: 25px 20px;
     font-size:var(--fs-3);
 }
+#download-qr{
+    display: none;
+}
+
+/*------------------------------------------*/
+
+
+/* 
+    FOOTER
+ */
+
+.footer-wrapper{
+width: 100%;
+height: fit-content;
+padding: 20px;
+margin-top: 2rem;
+}
+.social-media-wrapper a, a i{
+    color: var(--background-secondary);
+    margin: 0 8px;
+    font-size: 1.8em;
+}
+.social-media-wrapper a i:hover{
+    color: var(--text-color);
+}
+.copyright-wrapper,.copyright-wrapper a{
+    font-size: var(--fs-3);
+    color: var(--background-secondary);
+}
+.copyright-wrapper a:hover{
+    color: var(--text-color);
+}
+
+/*------------------------------------------*/

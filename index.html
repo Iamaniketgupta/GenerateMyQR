@@ -57,13 +57,17 @@
             <div class="intro-container flex">
                 <div class="intro-text-container flex flex-col">
                     <h1>Generate Any QR for FREE</h1>
-                    <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet reiciendis sint nulla,
-                        deserunt
-                        laborum possimus fugit obcaecati assumenda omnis exercitationem repudiandae neque, ad ipsam
-                        laudantium
-                        unde distinctio minima cumque! Quam!
+                    <p> Enhance your online presence and business with our user-friendly platform, enabling you to
+                        generate free QR Codes and Bar Codes tailored to your unique needs.
+                        <br>
+                        Whether it's for your
+                        website, products, or promotional materials, our online tool offers a seamless experience,
+                        allowing you to boost your business through effective and visually appealing code generation.
+                        <br>
+                        Enhance your marketing strategy and engage your audience with customized QR Codes that leave a
+                        lasting impression.
                     </p>
-                    <button class="btn">Generate QR</button>
+                    <button class="btn">Know More</button>
                 </div>
 
                 <div class="intro-image-container">
@@ -80,37 +84,61 @@
     -->
 
         <section id="qr-generator-container">
-<div class="qr-generator flex">
-            <div class="qr-details-form">
-                <form id="qr-form">
-                    <label for="qr_url">
-                        URL/Text
-                    </label>
-                    <input type="url" name="qr_url" id="qr_url" placeholder="Enter any URL or Text ">
+            <div class="qr-generator flex">
+                <div class="qr-details-form">
+                    <form id="qr-form">
+                        <label for="qr_url">
+                            URL/Text
+                        </label>
 
-                    <label for="size">
-                        Select Size
-                    </label>
-                    <select name="size" id="size">
-                        <option value="300" selected>300x300</option>
-                        <option value="400">400x400</option>
-                        <option value="500">500x500</option>
-                        <option value="600">600x600</option>
-                    </select>
-                </form>
-                <button id="download-qr"class="btn" disabled>Download QR</button>
+                        <input type="text" name="qr_url" id="qr_url" autocomplete="off" placeholder="Enter any URL or Text " required>
+
+                        <label for="size">
+                            Select Size
+                        </label>
+                        <select name="size" id="size" required>
+                            <option value="300" selected>300x300</option>
+                            <option value="400">400x400</option>
+                            <option value="500">500x500</option>
+                            <option value="600">600x600</option>
+                        </select>
+
+                        <label for="color-picker">Choose Color : </label>
+                        <input type="color" name="color" id="color-picker">
+
+                        <button type="submit" id="generate-qr" class="btn">Generate QR</button>
+                    </form>
+
+                </div>
+                <div class="qr-code-image-main-wrapper flex flex-col">
+                    <div id="qr-code-image-wrapper">
+                        <div id="qr-code"></div>
+                    </div>
+                    <button id="download-qr" class="btn">Download QR</button>
+                </div>
             </div>
-            <div id="qr-code-image-wrapper">
-                <div id="qr-code"></div>
-            </div>
-        </div>
         </section>
 
 
+        <div class="footer-wrapper flex flex-col">
+            <section id="connect">
+                <div class="social-media-wrapper">
+                    <a href="https://www.instagram.com/iamaniketgupta"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/iamaniketgupta"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/iamaniketgupta"><i class="fa-brands fa-square-github"></i></a>
+
+                </div>
+                <!-- social ends -->
+                <div class="copyright-wrapper">
+                    <p>Developed with <span style="color: red;">&hearts;</span> by <a href="#">Aniket Gupta</a></p>
+                </div>
+            </section>
+        </div>
+        <!-- footer ends -->
 
 
-        <!-- main wrapper end point -->
     </div>
+    <!-- main wrapper ends -->
 
     <!-- 
         Scripts
