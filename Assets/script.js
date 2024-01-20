@@ -92,7 +92,7 @@ function downloadQR() {
     if (qrImg) {
         const a = document.createElement("a");
         a.href = `${qrImg.src}`;
-        a.download = "qrcode.jpeg";
+        a.download = "qrcode";
         a.click();
     }
 }
