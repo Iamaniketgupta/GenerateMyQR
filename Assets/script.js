@@ -1,11 +1,3 @@
-//Temporary Script----------------
-
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    let userAgentString = navigator.userAgent;
-    userAgentString = userAgentString.replace(/Mobile/, "");
-    navigator.__defineGetter__("userAgent", function () { return userAgentString; });
-}
-//--------------------------------
 
 const themeBtn = document.querySelector("#theme-changer i");
 const body = document.querySelector("body");
@@ -61,7 +53,6 @@ qrForm.addEventListener("submit", async (e) => {
 
 
     try {
-
         await generateQR(qrInputBox.value, qrSize.value, colorVal.value);
         downloadBtn.style.display = "block";
 
