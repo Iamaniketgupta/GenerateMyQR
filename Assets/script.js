@@ -85,20 +85,18 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
 downloadBtn.addEventListener("click", downloadQR);
 
 function downloadQR() {
-
     let qrImg = qrCodeContainer.querySelector("img");
-
-    fetch(qrImg.src)
-    .then(res => {
-        return res.blob();
-    })
-    .then(blob=>{
-        let imgUrl = URL.createObjectURL(blob)
-      
-        const link = document.createElement("a");
-        link.href = imgUrl;
-        link.download = "qrcode.png";
-        link.click();
-    });
     
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function() {
+        var a = document.createElement('a');
+        a.href = window.URL.createObjectURL(xhr.response);
+        a.download = 'qrcode';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+    xhr.open('GET', qrImg.src);
+    xhr.send();
 }
