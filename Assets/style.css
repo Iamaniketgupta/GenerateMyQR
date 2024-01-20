@@ -414,7 +414,7 @@ select {
     display: none;
 }
 
-#download-qr,
+
 #generate-qr {
     margin: 25px 20px;
     font-size: var(--fs-3);
