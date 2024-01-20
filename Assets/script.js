@@ -89,21 +89,11 @@ downloadBtn.addEventListener("click", downloadQR);
 
 // function downloadQR() {
 //     let qrImg = document.querySelector("#qr-code img");
-//     if(qrImg){
-//     let a = document.createElement("a");
-//     a.href = `${qrImg.src}`;
-//     a.download = "qrcode";
-//     a.click();
-// console.log(a.href);
-// viewQRInNewWindow();
-// }
-// }
-
-// function viewQRInNewWindow() {
-//     let qrImg = document.querySelector("#qr-code img");
 //     if (qrImg) {
-//         let newWindow = window.open();
-//         newWindow.document.write(`<img src="${qrImg.src}" alt="QR Code">`);
+//         const a = document.createElement("a");
+//         a.href = `${qrImg.src}`;
+//         a.download = "qrcode";
+//         a.click();
 //     }
 // }
 
@@ -111,15 +101,20 @@ function downloadQR() {
     let qrImg = document.querySelector("#qr-code img");
     if (qrImg) {
         let a = document.createElement("a");
-        fetch(qrImg.src)
-            .then(response => response.blob())
-            .then(blob => {
-                a.href = window.URL.createObjectURL(blob);
-                a.download = "qrcode";
-                a.click();
-                console.log(a.href);
-            })
-            .catch(error => console.error('Error fetching the image:', error));
+
+        // Fetch the image and set the Content-Type header explicitly
+        fetch(qrImg.src, {
+            headers: {
+                'Content-Type': 'image/png', // Replace with the appropriate content type
+            },
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            a.href = window.URL.createObjectURL(blob);
+            a.download = "qrcode";
+            a.click();
+            console.log(a.href);
+        })
+        .catch(error => console.error('Error fetching the image:', error));
     }
-    
 }
