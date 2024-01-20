@@ -86,17 +86,15 @@ downloadBtn.addEventListener("click", downloadQR);
 
 function downloadQR() {
     let qrImg = qrCodeContainer.querySelector("img");
-    
-    var xhr = new XMLHttpRequest();
-    xhr.responseType = 'blob';
-    xhr.onload = function() {
-        var a = document.createElement('a');
-        a.href = window.URL.createObjectURL(xhr.response);
-        a.download = 'qrcode';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    };
-    xhr.open('GET', qrImg.src);
-    xhr.send();
+
+    fetch(qrImg.src)
+        .then(response => response.blob())
+        .then(blob => {
+            var imgUrl = window.URL.createObjectURL(blob);
+
+            var newTab = window.open();
+            newTab.document.write('<html><head><title>QR Code</title></head><body><img src="' + imgUrl + '" alt="QR Code"></body></html>');
+        })
+        .catch(error => console.error('Error fetching the image:', error));
 }
+
