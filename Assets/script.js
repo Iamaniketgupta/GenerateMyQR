@@ -111,7 +111,7 @@ function downloadQR() {
         .then(response => response.blob())
         .then(blob => {
             a.href = window.URL.createObjectURL(blob);
-            a.download = "qrcode";
+            a.download = "qrcode.png";
             a.click();
             console.log(a.href);
         })
