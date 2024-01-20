@@ -419,10 +419,20 @@ select {
     margin: 25px 20px;
     font-size: var(--fs-3);
 }
+#share-qr{
+    border: 2px solid var(--secondary-color2);
+    background-color: transparent;
+    color: var(--background-secondary);
+}
+#share-qr:hover{
+    border-color: var(--text-color);
+    color: var(--text-color);
 
-#download-qr {
+}
+#download-qr,#share-qr {
     display: none;
 }
+
 
 /*------------------------------------------*/
 

@@ -13,7 +13,8 @@ const qrCodeContainer = document.getElementById("qr-code");
 
 const colorVal = document.querySelector("#color-picker");
 
-const downloadBtn = document.querySelector("#download-qr");
+// const downloadBtn = document.querySelector("#download-qr");
+// const shareBtn = document.querySelector("#share-qr");
 
 colorVal.value = "#000000"; //default color
 
@@ -54,8 +55,12 @@ qrForm.addEventListener("submit", async (e) => {
 
     try {
         await generateQR(qrInputBox.value, qrSize.value, colorVal.value);
-        downloadBtn.style.display = "block";
-
+        // downloadBtn.style.display = "block";
+        // shareBtn.style.display = "block";
+        const qrImg= document.querySelector("#qr-code img")
+        if(qrImg){
+            qrImg.setAttribute("download","qrcode");
+        }
 
     } catch (err) {
         console.error("Error generating QR code:", err);
@@ -79,22 +84,18 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
         });
     } catch (error) {
         console.error("Error generating QR code:", error);
+        console.clear();
     }
 };
 
+//   DOWNLOAD BUTTON   
+/*
 
-//  DOWNLOAD BUTTON
+downloadBtn.addEventListener("click", ()=>{
+})
 
-downloadBtn.addEventListener("click", downloadQR);
+*/
 
-function downloadQR() {
-    let qrImg = document.querySelector("#qr-code img");
-    if (qrImg) {
-        const a = document.createElement("a");
-        a.href = `${qrImg.src}`;
-        a.download = "qrcode";
-        a.click();
-    }
-}
+
 
 
