@@ -50,7 +50,7 @@ qrForm.addEventListener("submit", async (e) => {
 
     try {
 
-        await generateQR(qrInputBox.value, qrSize.value, colorVal.value); // Pass the values
+        await generateQR(qrInputBox.value, qrSize.value, colorVal.value);
         downloadBtn.style.display = "block";
 
 
@@ -96,7 +96,7 @@ function downloadQR() {
         let imgUrl = URL.createObjectURL(blob)
       
         const link = document.createElement("a");
-        link.href = qrImg.src;
+        link.href = imgUrl;
         link.download = "qrcode.png";
         link.click();
     });
