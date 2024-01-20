@@ -1,14 +1,17 @@
 const themeBtn = document.querySelector("#theme-changer i");
 const body = document.querySelector("body");
+
 const nav = document.querySelector("#nav-wrapper");
 const navIconBars = document.querySelector(".fa-bars");
 const navIconCross = document.querySelector("#cross");
+
 const qrForm = document.getElementById("qr-form");
 const qrInputBox = document.getElementById("qr_url");
 const qrSize = document.getElementById("size");
 const qrCodeContainer = document.getElementById("qr-code");
-const loader = document.querySelector("#loader");
+
 const colorVal = document.querySelector("#color-picker");
+
 const downloadBtn = document.querySelector("#download-qr");
 
 colorVal.value = "#000000"; //default color
@@ -79,22 +82,27 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
     }
 };
 
-//  DOWNLOAD BUTTON
 
+//  DOWNLOAD BUTTON
 
 downloadBtn.addEventListener("click", downloadQR);
 
 function downloadQR() {
-    let qrImg = qrCodeContainer.querySelector("img");
-
-    fetch(qrImg.src)
-        .then(response => response.blob())
-        .then(blob => {
-            var imgUrl = window.URL.createObjectURL(blob);
-
-            var newTab = window.open();
-            newTab.document.write('<html><head><title>QR Code</title></head><body><img src="' + imgUrl + '" alt="QR Code"></body></html>');
-        })
-        .catch(error => console.error('Error fetching the image:', error));
+    let qrImg = document.querySelector("#qr-code img");
+    if(qrImg){
+    let a = document.createElement("a");
+    a.href = `${qrImg.src}`;
+    a.download = "qrcode";
+    a.click();
+console.log(a.href);
+viewQRInNewWindow();
+}
 }
 
+function viewQRInNewWindow() {
+    let qrImg = document.querySelector("#qr-code img");
+    if (qrImg) {
+        let newWindow = window.open();
+        newWindow.document.write(`<img src="${qrImg.src}" alt="QR Code">`);
+    }
+}
