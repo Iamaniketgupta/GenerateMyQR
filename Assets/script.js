@@ -87,11 +87,11 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
     }
 };
 
-//   DOWNLOAD BUTTON   
+//   DOWNLOAD
 
 downloadBtn.addEventListener("click", ()=>{
 
- let imgElem=qrCodeContainer.getElementsByTagName("img");
+ var imgElem=qrCodeContainer.getElementsByTagName("img");
 
  if(imgElem){
 
@@ -102,8 +102,12 @@ downloadBtn.addEventListener("click", ()=>{
  link.href =imgSrc;
  link.download = "qrcode.png";
 
+ if(confirm("Are you sure? ")){
     link.click();
+}
+
  }
+
 });
 
 
