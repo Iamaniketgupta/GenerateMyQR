@@ -407,7 +407,8 @@ select {
     overflow: scroll;
     cursor: pointer;
 }
-#qr-code img {
+#qr-code img,canvas {
+    position: absolute;
     z-index: 2;
 }
 #qr-code-image-wrapper ::-webkit-scrollbar {
