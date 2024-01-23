@@ -13,7 +13,7 @@ const qrCodeContainer = document.getElementById("qr-code");
 
 const colorVal = document.querySelector("#color-picker");
 
-// const downloadBtn = document.querySelector("#download-qr");
+const downloadBtn = document.querySelector("#download-qr");
 // const shareBtn = document.querySelector("#share-qr");
 
 colorVal.value = "#000000"; //default color
@@ -54,14 +54,11 @@ qrForm.addEventListener("submit", async (e) => {
 
 
     try {
-        await generateQR(qrInputBox.value, qrSize.value, colorVal.value);
-        // downloadBtn.style.display = "block";
+       await generateQR(qrInputBox.value, qrSize.value, colorVal.value)
+      
+        downloadBtn.style.display = "block";
         // shareBtn.style.display = "block";
-        const qrImg= document.querySelector("#qr-code img")
-        if(qrImg){
-            qrImg.setAttribute("download","qrcode");
-        }
-
+    
     } catch (err) {
         console.error("Error generating QR code:", err);
         loader.style.display = "none";
@@ -72,8 +69,9 @@ qrForm.addEventListener("submit", async (e) => {
 //  QR GENERATION
 
 const generateQR = (qrVal, qrSizeVal, colorVal) => {
-    qrCodeContainer.innerHTML = "";
+    qrCodeContainer.innerHTML= "";
     try {
+
         new QRCode(qrCodeContainer, {
             text: qrVal,
             width: qrSizeVal,
@@ -82,6 +80,7 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
             colorLight: "white",
             correctLevel: QRCode.CorrectLevel.H,
         });
+  
     } catch (error) {
         console.error("Error generating QR code:", error);
         console.clear();
@@ -89,12 +88,25 @@ const generateQR = (qrVal, qrSizeVal, colorVal) => {
 };
 
 //   DOWNLOAD BUTTON   
-/*
 
 downloadBtn.addEventListener("click", ()=>{
-})
 
-*/
+ let imgElem=qrCodeContainer.getElementsByTagName("img");
+
+ if(imgElem){
+
+ let imgSrc=imgElem[0].attributes[0].value;
+
+ let link =document.createElement("a");
+ link.href
+ link.href =imgSrc;
+ link.download = "qrcode.png";
+
+    link.click();
+ }
+});
+
+
 
 
 
