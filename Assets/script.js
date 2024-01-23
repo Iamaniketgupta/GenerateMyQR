@@ -98,7 +98,7 @@ downloadBtn.addEventListener("click", ()=>{
  let imgSrc=imgElem[0].attributes[0].value;
 
  let link =document.createElement("a");
- link.href
+
  link.href =imgSrc;
  link.download = "qrcode.png";
 
