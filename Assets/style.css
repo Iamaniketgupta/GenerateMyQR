@@ -399,6 +399,7 @@ select {
     border: 4px dashed var(--secondary-color2);
     background-image: url("/Assets/Images/qrplaceholder.jpg");
     background-size: cover;
+    overflow:scroll;
 }
 
 #qr-code {
